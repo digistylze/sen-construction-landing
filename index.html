@@ -1061,72 +1061,6 @@ p { margin: 0; }
 
 
 
-#s-zone {
-  --zh: clamp(600px, 100svh, 1080px);   
-  --fh: calc(var(--zh) * .78);           
-  --ts: 9vw;                             
-  position: relative; height: var(--zh); overflow: hidden;
-  display: grid; place-items: center;
-  background: var(--navy);
-}
-#s-zone .zn-anchor { position: absolute; top: 0; }
-
-
-#s-zone .zn-screen { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; pointer-events: none; }
-#s-zone .zn-3d { position: relative; width: 100%; perspective: 250px; transform-style: preserve-3d; }
-#s-zone .zn-fold { overflow: hidden; width: 100%; height: var(--fh); }
-#s-zone .zn-fold--center { transform: translateZ(0) rotateX(0) scale3d(1, 1.002, 1); }
-#s-zone .zn-fold--before { position: absolute; inset: 0; transform-origin: bottom center; transform: translate3d(0, -100%, 0) rotateX(-120deg) scale3d(1, 1.002, 1); }
-#s-zone .zn-fold--after { position: absolute; inset: 0; transform-origin: top center; transform: translate3d(0, 100%, 0) rotateX(120deg) scale3d(1, 1.002, 1); }
-#s-zone .zn-fix { width: 100%; height: 100%; transform: scaleY(.998); }
-#s-zone .zn-fold--before .zn-fix { transform-origin: bottom center; }
-#s-zone .zn-fold--after .zn-fix { transform-origin: top center; }
-#s-zone .zn-scroller { width: 100%; height: 100%; }
-#s-zone .zn-fold--before .zn-scroller { transform: translateY(100%); }
-#s-zone .zn-fold--after .zn-scroller { transform: translateY(-100%); }
-
-
-#s-zone .zn-line { display: flex; margin: 1vh 0 2vh -5vw; white-space: nowrap; user-select: none; }
-#s-zone .zn-line span {
-  flex: none; margin-right: .16em;
-  font-family: var(--f-display); text-transform: uppercase; font-size: var(--ts); line-height: .9; letter-spacing: -.005em;
-}
-#s-zone .zn-f { font-weight: 700; color: var(--white); }
-#s-zone .zn-o { font-weight: 500; color: transparent; -webkit-text-stroke: 1.5px rgba(169, 181, 198, .7); }
-#s-zone .zn-r { font-weight: 700; color: var(--red); }
-
-
-#s-zone .zn-frame {
-  position: relative; z-index: 2;
-  width: min(640px, calc(100% - 2 * var(--gutter)));
-  padding: clamp(30px, 4vw, 52px) clamp(24px, 4vw, 56px);
-  background: var(--navy-deep); text-align: center;
-  box-shadow: 12px 12px 0 var(--red);
-}
-#s-zone h2 { margin-top: 18px; font-size: clamp(32px, 4.2vw, 58px); line-height: .98; }
-#s-zone .zn-text { margin: 18px auto 0; max-width: 46ch; color: var(--mist); }
-#s-zone .zn-tel {
-  display: inline-flex; align-items: center; gap: 12px; min-height: 48px; margin-top: 20px;
-  font-family: var(--f-display); font-weight: 600; font-size: clamp(24px, 2.4vw, 32px); letter-spacing: .03em; color: var(--white);
-  text-decoration: none; border-bottom: 2px solid var(--red); line-height: 1.2;
-  transition: color .3s var(--ease);
-}
-#s-zone .zn-tel svg { width: 22px; height: 22px; color: var(--red); flex: none; }
-#s-zone .zn-tel:hover { color: var(--red-2); }
-
-@media (max-width: 768px) {
-  #s-zone { --zh: clamp(640px, 100svh, 900px); --fh: calc(var(--zh) * .8); --ts: 16vw; }
-  
-  #s-zone .zn-3d { perspective: 420px; }
-  #s-zone .zn-fold--before { transform: translate3d(0, -100%, 0) rotateX(-105deg) scale3d(1, 1.002, 1); }
-  #s-zone .zn-fold--after { transform: translate3d(0, 100%, 0) rotateX(105deg) scale3d(1, 1.002, 1); }
-  #s-zone .zn-line { margin: .6vh 0 1.4vh -4vw; }
-  #s-zone .zn-o { -webkit-text-stroke-width: 1.2px; }
-  #s-zone .zn-frame { box-shadow: 8px 8px 0 var(--red); }
-}
-
-
-
 #s-faq { position: relative; background: var(--paper); padding: clamp(84px, 10vw, 150px) 0 clamp(90px, 10vw, 150px); overflow-x: clip; }
 #s-faq .fq-anchor { position: absolute; top: 0; }
 #s-faq .fq-head { display: flex; flex-direction: column; align-items: flex-start; gap: 18px; margin-bottom: clamp(76px, 7vw, 100px); }
@@ -1205,61 +1139,6 @@ p { margin: 0; }
   #s-faq .fq-q { font-size: 19px; line-height: 1.15; }
   #s-faq .fq-x { width: 32px; height: 32px; }
   #s-faq .fq-preview { display: none; }
-}
-
-
-
-#s-cta { position: relative; background: var(--navy-deep); overflow-x: clip; }
-#s-cta .ct__stage { position: relative; height: 100vh; height: 100svh; overflow: hidden; }
-
-#s-cta .ct__work { position: absolute; inset: 0; background: var(--navy-deep); overflow: hidden; }
-
-#s-cta .ct__grid {
-  position: absolute; inset: 0;
-  background-image: radial-gradient(circle, rgba(196, 38, 60, .6) 1.1px, transparent 1.7px);
-  background-size: 30px 30px; background-position: 0 0;
-}
-#s-cta .ct__field { position: absolute; inset: 0; }
-#s-cta .ct__l {
-  position: absolute; left: 0; top: 0;
-  font-family: var(--f-display); font-weight: 600; line-height: 1; color: var(--red);
-  white-space: nowrap; user-select: none; pointer-events: none;
-}
-#s-cta .ct__tile {
-  position: absolute; left: 0; top: 0; margin: 0; overflow: hidden; background: var(--navy-2);
-  clip-path: inset(0 50% 0 50%);
-}
-#s-cta .ct__tile img { width: 100%; height: 100%; object-fit: cover; }
-
-
-#s-cta .ct__intro, #s-cta .ct__outro {
-  position: absolute; inset: 0; z-index: 2; overflow: hidden;
-  display: grid; place-items: center; background: var(--red);
-}
-#s-cta .ct__label {
-  font-family: var(--f-display); font-weight: 500; text-transform: uppercase; white-space: nowrap;
-  font-size: clamp(34px, 5vw, 84px); line-height: 1; letter-spacing: .01em; color: var(--navy-deep);
-}
-#s-cta .ct__outro { z-index: 3; }
-#s-cta .ct__end { display: flex; flex-direction: column; align-items: center; text-align: center; }
-#s-cta .ct__title { font-size: clamp(40px, 6.4vw, 104px); line-height: .95; max-width: 14em; color: var(--white); }
-#s-cta .ct__lead { margin-top: clamp(16px, 2.4vh, 28px); max-width: 34em; font-size: clamp(16px, .5vw + 13px, 20px); line-height: 1.55; color: rgba(247, 248, 250, .92); text-wrap: balance; }
-#s-cta .ct__btns { margin-top: clamp(24px, 4.5vh, 48px); display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
-#s-cta .ct__btns .btn { min-width: 180px; }
-
-
-#s-cta.ct--static .ct__stage { height: auto; display: flex; flex-direction: column; }
-#s-cta.ct--static .ct__intro { order: -1; }
-#s-cta.ct--static .ct__intro, #s-cta.ct--static .ct__outro { position: relative; inset: auto; transform: none; }
-#s-cta.ct--static .ct__intro { height: 40vh; }
-#s-cta.ct--static .ct__work { position: relative; height: 80vh; }
-#s-cta.ct--static .ct__outro { padding: clamp(72px, 12vh, 140px) 0; }
-
-@media (max-width: 768px) {
-  #s-cta .ct__label { font-size: clamp(30px, 10vw, 44px); }
-  #s-cta .ct__title { font-size: clamp(38px, 11.5vw, 56px); }
-  #s-cta .ct__btns { flex-direction: column; align-items: stretch; width: 100%; max-width: 420px; }
-  #s-cta .ct__btns .btn { width: 100%; }
 }
 
 
@@ -1558,7 +1437,6 @@ html.is-menu-open #s-devis .dv-quick, html.is-devis-open #s-devis .dv-quick, htm
       <a class="nv-lane" href="#methode" data-lane="methode" data-word="Méthode"><span class="sr-only">Méthode</span><span class="nv-rot" aria-hidden="true"><span class="nv-track"></span></span></a>
       <a class="nv-lane" href="#realisations" data-lane="realisations" data-word="Réalisations"><span class="sr-only">Réalisations</span><span class="nv-rot" aria-hidden="true"><span class="nv-track"></span></span></a>
       <a class="nv-lane" href="#avis" data-lane="avis" data-word="Avis"><span class="sr-only">Avis</span><span class="nv-rot" aria-hidden="true"><span class="nv-track"></span></span></a>
-      <a class="nv-lane" href="#zone" data-lane="zone" data-word="Zone"><span class="sr-only">Zone</span><span class="nv-rot" aria-hidden="true"><span class="nv-track"></span></span></a>
       <a class="nv-lane" href="#questions" data-lane="questions" data-word="Questions"><span class="sr-only">Questions</span><span class="nv-rot" aria-hidden="true"><span class="nv-track"></span></span></a>
       <a class="nv-lane nv-lane--red" href="#contact" data-lane="contact" data-word="Contact"><span class="sr-only">Contact</span><span class="nv-rot" aria-hidden="true"><span class="nv-track"></span></span></a>
     </div>
@@ -1893,34 +1771,6 @@ html.is-menu-open #s-devis .dv-quick, html.is-devis-open #s-devis .dv-quick, htm
   </div>
 </section>
 
-<!-- 08-zone -->
-<section id="s-zone" aria-labelledby="zn-title">
-  <span id="zone" class="zn-anchor"></span>
-  
-  <div class="zn-base" hidden>
-    <div class="zn-line"><span class="zn-r">Vernier</span><span class="zn-o">Meyrin</span><span class="zn-f">Genève</span><span class="zn-o">Meyrin</span><span class="zn-f">Genève</span></div>
-    <div class="zn-line"><span class="zn-o">Lancy</span><span class="zn-f">Onex</span><span class="zn-o">Carouge</span><span class="zn-f">Onex</span><span class="zn-o">Lancy</span></div>
-    <div class="zn-line"><span class="zn-f">Bernex</span><span class="zn-o">Satigny</span><span class="zn-r">Vernier</span><span class="zn-o">Satigny</span><span class="zn-f">Bernex</span></div>
-    <div class="zn-line"><span class="zn-o">Le Grand-Saconnex</span><span class="zn-f">Versoix</span><span class="zn-o">Le Grand-Saconnex</span></div>
-    <div class="zn-line"><span class="zn-f">Thônex</span><span class="zn-o">Chêne-Bourg</span><span class="zn-r">Vernier</span><span class="zn-o">Chêne-Bourg</span></div>
-    <div class="zn-line"><span class="zn-o">Plan-les-Ouates</span><span class="zn-f">Confignon</span><span class="zn-o">Plan-les-Ouates</span></div>
-    <div class="zn-line"><span class="zn-f">Carouge</span><span class="zn-r">Vernier</span><span class="zn-o">Versoix</span><span class="zn-f">Meyrin</span><span class="zn-o">Lancy</span></div>
-  </div>
-  <div class="zn-screen" aria-hidden="true">
-    <div class="zn-3d">
-      <div class="zn-fold zn-fold--before"></div>
-      <div class="zn-fold zn-fold--center"></div>
-      <div class="zn-fold zn-fold--after"></div>
-    </div>
-  </div>
-  <div class="zn-frame">
-    <p class="eyebrow">Zone d’intervention</p>
-    <h2 id="zn-title">Basés à Vernier, actifs dans tout le canton.</h2>
-    <p class="zn-text">Notre adresse : Chemin des Églantines 4, 1219 Vernier. Nous intervenons dans le canton de Genève ; pour un chantier plus loin, appelez⁠-⁠nous et parlons-en.</p>
-    <a class="zn-tel" href="tel:+41762003239"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>076 200 32 39</a>
-  </div>
-</section>
-
 <!-- 09-faq -->
 <section id="s-faq" class="on-light" aria-labelledby="fq-title">
   <span id="questions" class="fq-anchor"></span>
@@ -1983,39 +1833,6 @@ html.is-menu-open #s-devis .dv-quick, html.is-devis-open #s-devis .dv-quick, htm
   </div>
 </section>
 
-<!-- 10-cta -->
-<section id="s-cta" class="ct" aria-labelledby="ct-title">
-  <div class="ct__stage">
-    
-    <div class="ct__work" aria-hidden="true">
-      <div class="ct__grid"></div>
-      <div class="ct__field">
-        <figure class="ct__tile"><img data-img="blocs-pose" alt="Main qui pose une brique sur un lit de mortier"></figure>
-        <figure class="ct__tile"><img data-img="coulage" alt="Coulage d’une dalle en béton sur un treillis d’armature"></figure>
-        <figure class="ct__tile"><img data-img="villa" alt="Maison contemporaine blanche au crépuscule"></figure>
-        <figure class="ct__tile"><img data-img="escalier-beton" alt="Escalier en béton entre deux murs, en noir et blanc"></figure>
-        <figure class="ct__tile"><img data-img="ouvrier" alt="Ouvrier en gilet de sécurité, casque à la main"></figure>
-      </div>
-    </div>
-
-    <div class="ct__intro on-red">
-      <p class="ct__label">( Votre projet )</p>
-    </div>
-
-    <div class="ct__outro on-red" data-hide-mbar>
-      <div class="wrap ct__end">
-        <h2 id="ct-title" class="ct__title">Un projet de gros œuvre ?</h2>
-        <p class="ct__lead">Décrivez-le en deux minutes. Dylan Sen vous rappelle pour convenir d’une visite.</p>
-        <div class="ct__btns">
-          <button class="btn btn--white" type="button" data-devis=""><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6.5 2h3v4.5H14v3H9.5V14h-3V9.5H2v-3h4.5z" fill="currentColor"/></svg>Demander un devis</button>
-          <a class="btn btn--ghost" href="tel:+41762003239">076 200 32 39</a>
-          <a class="btn btn--ghost" data-ct-wa href="https://wa.me/41762003239" target="_blank" rel="noopener">WhatsApp</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
 </main>
 <!-- 11-footer -->
 <footer id="s-footer" class="ft" data-hide-mbar>
@@ -2040,7 +1857,6 @@ html.is-menu-open #s-devis .dv-quick, html.is-devis-open #s-devis .dv-quick, htm
         <li><a href="#methode" data-ft-line>Méthode</a></li>
         <li><a href="#realisations" data-ft-line>Réalisations</a></li>
         <li><a href="#avis" data-ft-line>Avis</a></li>
-        <li><a href="#zone" data-ft-line>Zone</a></li>
         <li><a href="#questions" data-ft-line>Questions</a></li>
       </ul>
     </nav>
@@ -2262,7 +2078,7 @@ SECTIONS.push({
 
     // ---------- bandes ----------
     const FLAG = '<svg class="nv-flag" viewBox="0 0 32 32"><rect width="32" height="32"/><path d="M13 6h6v7h7v6h-7v7h-6v-7H6v-6h7z"/></svg>';
-    const VERTICAL = { desk: ["methode", "zone", "questions"], mob: ["methode", "zone"] };
+    const VERTICAL = { desk: ["methode", "questions"], mob: ["methode", "questions"] };
     const SPEED = 55;   // px par seconde
     let groups = { h: [], v: [] };
     let dirty = true;
@@ -3303,67 +3119,6 @@ SECTIONS.push({ id: "avis", init(ctx) {
     () => { running = false; gsap.ticker.remove(tick); });
 } });
 
-/* 08-zone */
-/* 08-zone · Scroll Animation #26 (FoldingDOM, démo 1) : le même contenu est recopié dans trois pans (replié en haut,
-   à plat au centre, replié en bas) et translaté d'un même décalage, si bien que les lignes passent d'un pan à l'autre
-   comme sur une feuille pliée. Le décalage suit le défilement (lissage lerp de la démo) et dérive seul en boucle tant
-   que la section est à l'écran. */
-SECTIONS.push({ id: "zone", init(ctx) {
-  const { gsap, ScrollTrigger, reduced } = ctx;
-  const root = document.querySelector("#s-zone");
-  if (!root) return;
-  const base = root.querySelector(".zn-base");
-  const folds = [...root.querySelectorAll(".zn-fold")];
-  let contents = [], setH = 1, start = 0;
-
-  // chaque pan reçoit le jeu de lignes répété assez de fois pour couvrir les trois pans quel que soit le décalage
-  const build = () => {
-    const fh = folds[1].offsetHeight;
-    folds[1].innerHTML = `<div class="zn-fix"><div class="zn-scroller"><div>${base.innerHTML}</div></div></div>`;
-    setH = folds[1].querySelector(".zn-scroller > div").offsetHeight || 1;
-    const k = Math.ceil(fh / setH);
-    const n = k + 2 + Math.ceil(2 * fh / setH);
-    const html = `<div class="zn-fix"><div class="zn-scroller"><div>${base.innerHTML.repeat(n)}</div></div></div>`;
-    folds.forEach(f => (f.innerHTML = html));
-    contents = folds.map(f => f.querySelector(".zn-scroller > div"));
-    start = k * setH;
-  };
-  build();
-
-  let drift = 0, cur = 0;
-  const place = pos => {
-    const m = ((pos % setH) + setH) % setH;
-    const y = -(start + m);
-    contents.forEach(c => (c.style.transform = `translate3d(0, ${y}px, 0)`));
-  };
-  place(0);
-  if (reduced) return;
-
-  // décalage = dérive lente + défilement de la page à travers la section (lissé comme la démo : lerp 0,1)
-  const tick = (time, deltaTime) => {
-    const r = root.getBoundingClientRect();
-    const progress = (innerHeight - r.top) / (innerHeight + r.height);
-    drift += Math.min(deltaTime, 50) * (ctx.isMobile() ? .022 : .03);
-    const target = drift + progress * r.height * 1.1;
-    let d = (target - cur) * .1;
-    if (Math.abs(d) < .001) d = target - cur;
-    cur += d;
-    place(cur);
-  };
-  let running = false;
-  ctx.whenVisible(root, () => { if (!running) { running = true; gsap.ticker.add(tick); } },
-    () => { running = false; gsap.ticker.remove(tick); });
-
-  let w = innerWidth;
-  ScrollTrigger.addEventListener("refreshInit", () => { if (innerWidth !== w) { w = innerWidth; build(); place(cur); } });
-
-  // le cadre entre par en dessous
-  gsap.from(root.querySelector(".zn-frame"), {
-    y: 60, opacity: 0, duration: 1.1, ease: "expo.out",
-    scrollTrigger: { trigger: root, start: "top 65%", once: true },
-  });
-} });
-
 /* 09-faq */
 /* 09-faq · Hover Effects #20 : dossiers abaissés au repos ; le dossier survolé se soulève (back.out 1.7, 0,25 s) et les
    autres passent en retrait ; le dossier ouvert reste soulevé, déplie sa réponse et laisse dépasser trois fiches
@@ -3445,165 +3200,6 @@ SECTIONS.push({ id: "faq", init(ctx) {
     onComplete: () => current && showImgs(current),
   });
 } });
-
-/* 10-cta */
-/* CTA : mécanique de Scroll Animation #62. Chaque rangée suit une trajectoire courbe projetée en perspective
-   (rangées du haut qui plongent vers le centre, rangées du bas qui remontent, lettres resserrées au milieu) ;
-   la position sur la trajectoire suit le défilement avec un lissage (lerp 0,07 comme le #62) et une dérive lente
-   pour que les rangées bougent aussi sans défilement. Ici les rangées alternent de sens et épellent D E V I S. */
-SECTIONS.push({
-  id: "cta",
-  init(ctx) {
-    const { gsap, ScrollTrigger } = ctx;
-    const root = document.getElementById("s-cta");
-    if (!root) return;
-    const stage = root.querySelector(".ct__stage");
-    const work = root.querySelector(".ct__work");
-    const field = root.querySelector(".ct__field");
-    const grid = root.querySelector(".ct__grid");
-    const tiles = [...root.querySelectorAll(".ct__tile")];
-    const intro = root.querySelector(".ct__intro");
-    const label = root.querySelector(".ct__label");
-    const outro = root.querySelector(".ct__outro");
-    const end = root.querySelector(".ct__end");
-
-    const wa = root.querySelector("[data-ct-wa]");
-    if (wa) wa.href = ctx.CONTACT.whatsapp("Bonjour, je souhaite un devis pour des travaux de gros œuvre.");
-
-    const WORD = ["D", "E", "V", "I", "S"];
-    const SPEED = [0.8, 1, 0.7, 0.9, 0.85];   // multiplicateurs de vitesse par rangée (ceux du #62, plus un)
-    const DIR = [1, -1, 1, -1, 1];            // sens alternés
-    const TILE_AT = [0.18, 0.62, 0.36, 0.8, 0.5]; // place de la photo dans chaque rangée (fraction de la trajectoire)
-    const BOW = 0.15;                         // courbure des rangées vers le centre
-
-    const meas = document.createElement("canvas").getContext("2d");
-    let W = 0, H = 0, mobile = false, F = 0, cc = 0, rows = [];
-    let SPAN = 1.5, DEPTH = 0.2;               // trajectoire = 1,5 largeur d'écran ; resserrement au milieu (0,8 comme le #62)
-    let sp = 0, drift = 0, st = null;
-
-    function layout() {
-      W = work.clientWidth; H = work.clientHeight; mobile = ctx.isMobile();
-      // métriques d'Oswald : hauteur de capitale et centre de la capitale dans une boîte line-height 1
-      meas.font = "600 100px Oswald";
-      const m = meas.measureText("D");
-      const cap = m.actualBoundingBoxAscent / 100;
-      const A = (m.fontBoundingBoxAscent || 117) / 100, D = (m.fontBoundingBoxDescent || 28) / 100;
-      const base = (1 - (A + D)) / 2 + A;           // ligne de base depuis le haut de la boîte (em)
-      SPAN = mobile ? 2 : 1.5; DEPTH = mobile ? 0.12 : 0.2;
-      const capT = mobile ? Math.min(H * 0.14, W * 0.3) : Math.min(H * 0.15, W * 0.11);
-      F = capT / cap;
-      cc = (base - cap / 2) * F;                      // centre de la capitale depuis le haut de la boîte (px)
-      field.style.fontSize = F + "px";
-
-      const th = capT * (mobile ? 1.05 : 1.1), tw = th * (mobile ? 1.25 : 1.55);
-      const L = SPAN * W;                             // longueur de la trajectoire avant projection
-
-      rows.forEach(r => r.items.forEach(it => it.letter && it.el.remove()));
-      meas.font = `600 ${F}px Oswald`;
-      rows = WORD.map((ch, i) => {
-        const lw = meas.measureText(ch).width;
-        const pad = F * 0.1;                          // marge de la photo dans sa case
-        const gapMin = Math.max(4, F * 0.05);
-        // mobile : une photo une rangée sur deux (D, V, S), les autres rangées restent pleines de lettres
-        const withTile = !mobile || i % 2 === 0;
-        const room = withTile ? tw + 2 * pad : 0;
-        const n = Math.max(3, Math.floor((L - room) / (lw + gapMin)));
-        const gap = (L - n * lw - room) / (withTile ? n + 1 : n);
-        tiles[i].style.display = withTile ? "" : "none";
-        const k = withTile ? Math.round(TILE_AT[i] * n) : -1;
-        const items = [];
-        let x = 0;
-        for (let j = 0; j <= n; j++) {
-          if (j === k) {
-            const el = tiles[i];
-            el.style.width = tw + "px"; el.style.height = th + "px";
-            el.style.transformOrigin = `${tw / 2}px ${th / 2}px`;
-            items.push({ el, w: tw, h: th, c: x + gap + pad + tw / 2, tile: true, img: el.firstElementChild });
-            x += gap + pad * 2 + tw;
-          }
-          if (j === n) break;
-          const el = document.createElement("div");
-          el.className = "ct__l"; el.textContent = ch;
-          el.style.transformOrigin = `${lw / 2}px ${cc}px`;
-          field.appendChild(el);
-          items.push({ el, w: lw, c: x + gap + lw / 2, letter: true });
-          x += gap + lw;
-        }
-        items.forEach(it => (it.t = it.c / L));
-        return { items, speed: SPEED[i], dir: DIR[i], o: 0 };
-      });
-    }
-
-    const frac = v => v - Math.floor(v);
-    function frame() {
-      const pitch = mobile ? H * 0.27 : H * 0.215;
-      // mobile : trois rangées visibles, la colonne de rangées remonte pendant l'épinglage
-      const shift = mobile ? Math.min(1, Math.max(0, (sp - 0.14) / 0.66)) * 2 * pitch : 0;
-      const o0 = mobile ? 0.3 : 0.26, o1 = mobile ? 0.6 : 0.44;   // zone où la photo est ouverte, puis fermée
-      rows.forEach((r, i) => {
-        const target = r.dir * (sp * r.speed * 0.55 + drift * r.speed);
-        r.o += (target - r.o) * 0.07;
-        const yb = mobile ? H * 0.22 + i * pitch - shift : H * 0.5 + (i - 2) * pitch;
-        const amp = -(yb - H / 2) * BOW;
-        for (const it of r.items) {
-          const t = frac(it.t + r.o);
-          const d = 1 - (2 * t - 1) * (2 * t - 1);
-          const f = 1 - DEPTH * d;
-          const X = (1 - SPAN) / 2 * W + SPAN * W * t;
-          const Y = yb + amp * Math.sin(Math.PI * t);
-          const sx = W / 2 + (X - W / 2) * f, sy = H / 2 + (Y - H / 2) * f;
-          if (it.letter) {
-            it.el.style.transform = `translate3d(${sx - it.w / 2}px,${sy - cc}px,0) scale(${f})`;
-          } else {
-            it.el.style.transform = `translate3d(${sx - it.w / 2}px,${sy - it.h / 2}px,0) scale(${f})`;
-            // la photo s'ouvre en passant dans la partie centrale de l'écran et se referme vers les bords
-            let e = Math.min(1, Math.max(0, (o1 * W - Math.abs(sx - W / 2)) / ((o1 - o0) * W)));
-            e = e * e * (3 - 2 * e);
-            const c = ((1 - e) * 50).toFixed(2);
-            it.el.style.clipPath = `inset(0 ${c}% 0 ${c}%)`;
-            it.img.style.transform = `scale(${(1.3 - 0.3 * e).toFixed(3)})`;
-          }
-        }
-      });
-      grid.style.backgroundPosition = `${-((sp * 300) % 30)}px 0`;
-    }
-
-    if (ctx.reduced) {
-      root.classList.add("ct--static");
-      layout(); frame();
-      addEventListener("resize", () => { layout(); frame(); });
-      return;
-    }
-
-    layout();
-    frame();
-
-    // aplats : l'entrée se lève comme un rideau, la sortie monte et recouvre les rangées (temps 0..1 = épinglage)
-    const tl = gsap.timeline({ defaults: { ease: "none" } })
-      .fromTo(intro, { yPercent: 0 }, { yPercent: -100, duration: 0.17, ease: "power1.in" }, 0)
-      .fromTo(label, { y: 0 }, { y: () => H * 0.32, duration: 0.17, ease: "power1.in" }, 0)
-      .fromTo(outro, { yPercent: 100 }, { yPercent: 0, duration: 0.2 }, 0.8)
-      .fromTo(end, { y: () => -H * 0.28 }, { y: 0, duration: 0.2 }, 0.8);
-    st = ScrollTrigger.create({
-      trigger: stage, start: "top top", end: () => "+=" + Math.round(stage.offsetHeight * 1.2),
-      pin: stage, pinSpacing: true, scrub: 0.6, animation: tl, invalidateOnRefresh: true,
-    });
-
-    let last = 0;
-    const tick = (time) => {
-      const dt = last ? Math.min(0.1, time - last) : 0; last = time;
-      drift += dt * 0.012;
-      sp += ((st ? st.progress : 0) - sp) * 0.08;
-      frame();
-    };
-    let on = false;
-    ctx.whenVisible(root, () => { if (!on) { on = true; last = 0; gsap.ticker.add(tick); } },
-      () => { if (on) { on = false; gsap.ticker.remove(tick); } });
-
-    let rt;
-    addEventListener("resize", () => { clearTimeout(rt); rt = setTimeout(() => { layout(); frame(); }, 150); });
-  },
-});
 
 /* 11-footer */
 /* Pied de page : mécanique de Mouse Effects #20. La photo est échantillonnée en grille ; chaque case devient un point
@@ -3790,8 +3386,8 @@ SECTIONS.push({
       gsap.to(pops, { y: 40, opacity: 0, duration: 0.4, ease: "power2.in", overwrite: true });
     };
     if (!reduced) {
-      ScrollTrigger.create({ trigger: root, start: "top 50%", onEnter: animateIn });
-      ScrollTrigger.create({ trigger: root, start: "top 85%", onLeaveBack: animateOut });
+      ScrollTrigger.create({ trigger: root, start: "top 88%", onEnter: animateIn });
+      ScrollTrigger.create({ trigger: root, start: "top 98%", onLeaveBack: animateOut });
       root.addEventListener("focusin", () => { if (!shown) animateIn(); });
     }
 
